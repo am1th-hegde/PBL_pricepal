@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Button with Href</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        text-align: center;
+    }
+
+    input {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    #output {
+        margin-top: 20px;
+        font-size: 18px;
+    }
+</style>
+</head>
+<body>
+
+    <label for="inputString">Enter a string:</label>
+    <input type="text" id="inputString" placeholder="Type your string here">
+    <button onclick="search()">search</button>
+
+    <div id="outputButton"></div>
+    <script>
+    function search() {
+      // Get the input value
+      var inputUrl = document.getElementById('inputString').value;
+
+      // Check if the input is not empty
+      if (inputUrl.trim() !== '') {
+        // Create a new button element
+        var button = document.createElement('a');
+        
+        // Set the href attribute based on the input value
+        button.href = inputUrl;
+
+        // Set the button text
+        button.textContent = 'Visit Link';
+
+        // Set any other attributes or styles as needed
+        button.setAttribute('target', '_blank'); // Open link in a new tab
+
+        // Append the button to the output div
+        document.getElementById('outputButton').innerHTML = '';
+        document.getElementById('outputButton').appendChild(button);
+      } else {
+        alert('Please enter a valid URL');
+      }
+    }
+  </script>
+</body>
+</html>
