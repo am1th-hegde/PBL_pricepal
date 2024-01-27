@@ -51,9 +51,12 @@ try:
     first_result = driver.find_element(By.CSS_SELECTOR,'.widgetId\=search-results_3 > span:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > h2:nth-child(2) > a:nth-child(1)')
     product_url = first_result.get_attribute("href")
 except Exception as e:
-    
-    first_result = driver.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[1]/div[1]/div/span[1]/div[1]/div[7]/div/div/span/div/div/div[2]/div[1]/h2/a')
-    product_url = first_result.get_attribute("href")
+    try:
+        first_result = driver.find_element(By.CSS_SELECTOR,'.widgetId\=search-results_5 > span:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > h2:nth-child(2) > a:nth-child(1)')
+        product_url = first_result.get_attribute("href")
+    except:
+        first_result = driver.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[1]/div[1]/div/span[1]/div[1]/div[7]/div/div/span/div/div/div[2]/div[1]/h2/a')
+        product_url = first_result.get_attribute("href")
 
 
 # Open the website
@@ -67,8 +70,12 @@ try:
     element_xpath = '/html/body/div[2]/div/div[5]/div[3]/div[4]/div[13]/div/div/div[4]/div[1]/span[3]/span[2]/span[2]'
     number_element = driver.find_element(By.XPATH, element_xpath)
 except Exception as e:
-    element_xpath = '/html/body/div[2]/div/div[6]/div[3]/div[4]/div[13]/div/div/div[4]/div[1]/span[2]'
-    number_element = driver.find_element(By.XPATH, element_xpath)
+    try:
+        element_xpath = 'span.a-price:nth-child(2)'
+        number_element= driver.find_element(By.CSS_SELECTOR, element_xpath)
+    except:
+        element_xpath = '/html/body/div[2]/div/div[6]/div[3]/div[4]/div[13]/div/div/div[4]/div[1]/span[2]'
+        number_element = driver.find_element(By.XPATH, element_xpath)
 
 # Extract the text from the element
 numbers_text = number_element.text
