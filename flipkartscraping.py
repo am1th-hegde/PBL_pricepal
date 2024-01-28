@@ -85,7 +85,7 @@ driver.quit()
 
 # Print the scraped numbers
 print(f"Price: ₹ {numbers_text}")
-
+print(product_url)
 
 # In[ ]:
 
