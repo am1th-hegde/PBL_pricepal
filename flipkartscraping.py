@@ -15,7 +15,7 @@
 
 # In[3]:
 
-
+import selenium
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
@@ -87,6 +87,10 @@ driver.quit()
 print(f"Price: ₹ {numbers_text}")
 print(product_url)
 
+def Backend_Flipkart(numbers_text):
+    return numbers_text
+
+Backend_Flipkart(numbers_text=numbers_text)
 # In[ ]:
 
 

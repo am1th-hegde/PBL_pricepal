@@ -87,6 +87,10 @@ driver.quit()
 print(f"Price: ₹ {numbers_text}")
 print(product_url)
 
+def Backend_Amazon(numbers_text):
+    return numbers_text;
+
+Backend_Amazon(numbers_text=numbers_text)
 # In[ ]:
 
 
